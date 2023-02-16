@@ -1,0 +1,49 @@
+.hotels{
+    padding: 0 25px;
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.hotels > h2{
+    font-weight: normal;
+}
+
+.card{
+    padding: 10px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+.card img{
+    height: 200px;
+    width: 100%;
+    background-color: rgb(164, 164, 164);
+}
+
+.card-details{
+    padding: 15px;
+    background-color: whitesmoke;
+    border:1px solid rgb(198, 198, 198);
+    border-top: 0;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+}
+
+.card-details h2{
+    font-size: 20px;
+}
+
+.address{
+    margin: 10px 0;
+}
+
+.price{
+    margin: 10px 5px;
+    font-size: 20px;
+}
