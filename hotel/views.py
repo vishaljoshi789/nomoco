@@ -28,4 +28,14 @@ def hotel(request):
     context = {}
     context['style'] = 'hotel.css'
     return render(request, 'hotel/hotel.html', context)
+
+def booking(request):
+    context = {}
+    context['style'] = 'booking.css'
+    return render(request, 'hotel/booking.html', context)
+
+def bill(request):
+    context = {}
+    context['style'] = 'bill.css'
+    return render(request, 'hotel/bill.html', context)
     

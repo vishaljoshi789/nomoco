@@ -1,8 +1,100 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% load static %}
 
-{% block content %} 
+{% block content %}
 <div class="hotel">
     <img src="" alt="">
-    
+    <div class="hotel_info">
+        <div style="color:rgb(239, 9, 159); display: flex; align-items: center;gap: 10px; margin: 10px 0;"><svg fill="#ef099f" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 96 960 960" width="24"><path d="M220 976q-24.75 0-42.375-17.625T160 916V482q0-24.75 17.625-42.375T220 422h70v-96q0-78.85 55.606-134.425Q401.212 136 480.106 136T614.5 191.575Q670 247.15 670 326v96h70q24.75 0 42.375 17.625T800 482v434q0 24.75-17.625 42.375T740 976H220Zm0-60h520V482H220v434Zm260.168-140Q512 776 534.5 753.969T557 701q0-30-22.668-54.5t-54.5-24.5Q448 622 425.5 646.5t-22.5 55q0 30.5 22.668 52.5t54.5 22ZM350 422h260v-96q0-54.167-37.882-92.083-37.883-37.917-92-37.917Q426 196 388 233.917 350 271.833 350 326v96ZM220 916V482v434Z"/></svg>Your Privacy Is Our First Priority </div>
+        <h2 class="name">NOMOCO - Hotel sindhi</h2>
+        <span class="address">Near Haridwar Kotwali , Upper
+            Road Hari Ki Paudi </span>
+        <div style="margin: 10px 0;"><div style="color:rgb(239, 9, 159); display: flex; gap: 10px;"><svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 30 35">
+            <path
+                d="M36.5 25.5v-3H44v3ZM39 40l-6.05-4.5 1.8-2.4 6.05 4.5Zm-4.1-25.15-1.8-2.4L39 8l1.8 2.4ZM10.5 38v-8H7q-1.25 0-2.125-.875T4 27v-6q0-1.25.875-2.125T7 18h9l10-6v24l-10-6h-2.5v8ZM15 24Zm13 6.7V17.3q1.35 1.2 2.175 2.925Q31 21.95 31 24t-.825 3.775Q29.35 29.5 28 30.7ZM7 21v6h9.8l6.2 3.7V17.3L16.8 21Z" />
+        </svg><span>Lowest price guranteed</span></div><div class="rate" style="margin-left:10px; font-size: larger; display: flex; gap: 10px;">
+            <span >₹149/hour</span>
+            <strike>₹500</strike>
+        </div></div>
+        
+        <form action="">
+            <div class="time-asking">
+                <b>Select Your Short Stay</b>
+                <div class="time-rate">
+                    <div class="time-span"><p>₹149</p><span>1 hour</span></div>
+                    <div class="time-span"><p>₹249</p><span>2 hour</span></div>
+                    <div class="time-span"><p>₹349</p><span>3 hour</span></div>
+                    <div class="time-span"><p>₹400</p><span>4 hour</span></div>
+                </div>
+            </div>
+
+            <div class="guest-count">
+                <b>Select Guests</b>
+                <div class="guest-count-div">
+                    <div>
+                <label for="">Adults</label>
+                <input type="text" inputmode="numeric" value="0"></div>
+                <div>
+                <label for="">Children</label>
+                <input type="text" inputmode="numeric" value="0"></div></div>
+            </div>
+            <!-- <input type="submit" value="Book Now"> -->
+        </form>
+        <div class="discription">
+            <i><b>Description</b></i>
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet sunt, a porro praesentium ipsa optio nemo labore fugit enim animi, similique aut iure sapiente explicabo quod soluta eum aliquid. Aut eos quo eligendi laborum perspiciatis necessitatibus esse animi, quaerat expedita repellat perferendis ea enim maxime dolores, nulla ipsam fugit iusto.</p>
+        </div>
+        <div class="amenities">
+            <div class="safety">
+                <svg style="filter:invert" xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30"><path d="m436 709 228-228-42-41-183 183-101-101-44 44 142 143Zm44 266q-140-35-230-162.5T160 533V295l320-120 320 120v238q0 152-90 279.5T480 975Zm0-62q115-38 187.5-143.5T740 533V337l-260-98-260 98v196q0 131 72.5 236.5T480 913Zm0-337Z"/></svg>
+
+                <span>Safety</span>
+            </div>
+            <div class="privacy">
+                <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30"><path d="m629 637-44-44q26-71-27-118t-115-24l-44-44q17-11 38-16t43-5q71 0 120.5 49.5T650 556q0 22-5.5 43.5T629 637Zm129 129-40-40q49-36 85.5-80.5T857 556q-50-111-150-175.5T490 316q-42 0-86 8t-69 19l-46-47q35-16 89.5-28T485 256q143 0 261.5 81.5T920 556q-26 64-67 117t-95 93Zm58 226L648 827q-35 14-79 21.5t-89 7.5q-146 0-265-81.5T40 556q20-52 55.5-101.5T182 360L56 234l42-43 757 757-39 44ZM223 402q-37 27-71.5 71T102 556q51 111 153.5 175.5T488 796q33 0 65-4t48-12l-64-64q-11 5-27 7.5t-30 2.5q-70 0-120-49t-50-121q0-15 2.5-30t7.5-27l-97-97Zm305 142Zm-116 58Z"/></svg>
+                <span>Privacy</span>
+            </div>
+            <div class="security">
+                <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30"><path d="M480 976q-140-35-230-162.5T160 534V296l320-120 320 120v238q0 152-90 279.5T480 976Zm0-62q106-35 175.5-128.5T737 576H480V241l-260 97v196q0 12 .5 20.5T223 576h257v338Z"/></svg>
+                <span>Security</span>
+            </div>
+        </div>
+        <div class="nearby">
+            <span>What's Nearby</span>
+            <div class="nearby-div">
+                <div>
+                    <span class="ref-name">
+                        Hari Ki Paudi
+                    </span>
+                    <span class="ref-dis">
+                        200m
+                    </span>
+                </div>
+                <div>
+                    <span class="ref-name">
+                        Railway Station
+                    </span>
+                    <span class="ref-dis">
+                        500m
+                    </span>
+                </div>
+                <div>
+                    <span class="ref-name">
+                        Bus Stand
+                    </span>
+                    <span class="ref-dis">
+                        550m
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        <div class="contact-now">
+            <span>Need Help?</span>
+            <a href=""><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 48 48"><path d="M39.75 42q-6.1 0-12.125-3T16.8 31.2Q12 26.4 9 20.375 6 14.35 6 8.25q0-.95.65-1.6Q7.3 6 8.25 6h7q.7 0 1.225.475.525.475.675 1.275l1.35 6.3q.1.7-.025 1.275t-.525.975l-5 5.05q2.8 4.65 6.275 8.1Q22.7 32.9 27.1 35.3l4.75-4.9q.5-.55 1.15-.775.65-.225 1.3-.075l5.95 1.3q.75.15 1.25.75T42 33v6.75q0 .95-.65 1.6-.65.65-1.6.65Zm-28.3-23.4 4.05-4.1L14.35 9H9q0 1.95.6 4.275t1.85 5.325ZM29.9 36.75q2.05.95 4.45 1.55 2.4.6 4.65.7v-5.35l-5.15-1.05ZM11.45 18.6ZM29.9 36.75Z"/></svg>Call Us Now</a>
+        </div>
+    </div>
+
 </div>
 {% endblock content %}

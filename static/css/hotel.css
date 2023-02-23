@@ -1,0 +1,133 @@
+.hotel img{
+    width: 100%;
+    height: 300px;
+    background-color: grey;
+}
+
+.hotel_info{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.time-asking{
+    margin: 10px 0;
+}
+
+.time-rate{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px 0;
+}
+
+.time-span{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.time-span p{
+    background-color: rgb(217, 217, 217);
+    padding: 10px;
+}
+
+.time-span span{
+    font-weight: bold;
+}
+
+.guest-count{
+    margin: 30px 0;
+}
+
+.guest-count-div{
+    border: 1px solid rgba(128, 128, 128, 0.498);
+    border-radius:  0 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.guest-count-div div{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 80px;
+    font-weight: bold;
+    align-items: center;
+}
+
+.guest-count-div div input{
+    font-size: 17px;
+    width: 40px;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(217, 217, 217);
+    border: none;
+    font-weight: bold;
+}
+
+
+.discription p{
+    margin: 10px 0;
+    border: 1px solid rgba(128, 128, 128, 0.498);
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+
+}
+
+.amenities{
+    border: 1px solid rgba(128, 128, 128, 0.498);
+    padding: 20px 10px;
+    border-radius: 0 0 10px 10px;
+    font-weight: bold;
+    font-style: italic;
+
+}
+
+.amenities div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nearby{
+    margin: 40px 0 20px 0;
+}
+
+.nearby-div{
+    border: 1px solid rgba(128, 128, 128, 0.498);
+    border-radius: 0 0 10px 10px;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nearby-div div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.contact-now{
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+    padding: 0 20px;
+    font-weight: bold;
+    align-items: center;
+}
+
+.contact-now a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border: 1px solid rgba(128, 128, 128, 0.400);
+    padding: 10px;
+}
