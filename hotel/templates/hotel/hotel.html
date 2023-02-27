@@ -3,28 +3,45 @@
 
 {% block content %}
 <div class="hotel">
-    <img src="" alt="">
+    <div class="img-gap"></div>
+    <div class="slider">
+        {% for image in hotel_image %}
+        <div class="slide">
+            <div class="slide-image" style="background: url({{image.image.url}}); width: 100%; height: 100%; background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+        </div>
+        {% endfor %}
+      
+      </div>
+      
+      <div class="prev"><</div>
+      <div class="next">></div>
     <div class="hotel_info">
         <div style="color:rgb(239, 9, 159); display: flex; align-items: center;gap: 10px; margin: 10px 0;"><svg fill="#ef099f" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 96 960 960" width="24"><path d="M220 976q-24.75 0-42.375-17.625T160 916V482q0-24.75 17.625-42.375T220 422h70v-96q0-78.85 55.606-134.425Q401.212 136 480.106 136T614.5 191.575Q670 247.15 670 326v96h70q24.75 0 42.375 17.625T800 482v434q0 24.75-17.625 42.375T740 976H220Zm0-60h520V482H220v434Zm260.168-140Q512 776 534.5 753.969T557 701q0-30-22.668-54.5t-54.5-24.5Q448 622 425.5 646.5t-22.5 55q0 30.5 22.668 52.5t54.5 22ZM350 422h260v-96q0-54.167-37.882-92.083-37.883-37.917-92-37.917Q426 196 388 233.917 350 271.833 350 326v96ZM220 916V482v434Z"/></svg>Your Privacy Is Our First Priority </div>
-        <h2 class="name">NOMOCO - Hotel sindhi</h2>
-        <span class="address">Near Haridwar Kotwali , Upper
-            Road Hari Ki Paudi </span>
+        <h2 class="name">{{hotel.hotel_name}}</h2>
+        <span class="address">{{hotel.address}}</span>
         <div style="margin: 10px 0;"><div style="color:rgb(239, 9, 159); display: flex; gap: 10px;"><svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 30 35">
             <path
                 d="M36.5 25.5v-3H44v3ZM39 40l-6.05-4.5 1.8-2.4 6.05 4.5Zm-4.1-25.15-1.8-2.4L39 8l1.8 2.4ZM10.5 38v-8H7q-1.25 0-2.125-.875T4 27v-6q0-1.25.875-2.125T7 18h9l10-6v24l-10-6h-2.5v8ZM15 24Zm13 6.7V17.3q1.35 1.2 2.175 2.925Q31 21.95 31 24t-.825 3.775Q29.35 29.5 28 30.7ZM7 21v6h9.8l6.2 3.7V17.3L16.8 21Z" />
         </svg><span>Lowest price guranteed</span></div><div class="rate" style="margin-left:10px; font-size: larger; display: flex; gap: 10px;">
-            <span >₹149/hour</span>
-            <strike>₹500</strike>
+            <span >₹{{hotel.offer_price}}/hour</span>
+            <strike>₹{{hotel.price}}</strike>
         </div></div>
         
-        <form action="">
+        <form action="{% url 'booking' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="hour_count" value="1">
+            <input type="hidden" name="type" value="booking_page">
+            <input type="hidden" name="price" value="{{hotel.hour_1_price}}">
+            <input type="hidden" name="hotel_id" value="{{hotel.id}}">
+            <input type="hidden" name="date" value="{{date}}">
+            <input type="hidden" name="time" value="{{time}}">
             <div class="time-asking">
                 <b>Select Your Short Stay</b>
                 <div class="time-rate">
-                    <div class="time-span"><p>₹149</p><span>1 hour</span></div>
-                    <div class="time-span"><p>₹249</p><span>2 hour</span></div>
-                    <div class="time-span"><p>₹349</p><span>3 hour</span></div>
-                    <div class="time-span"><p>₹400</p><span>4 hour</span></div>
+                    <div class="time-span time-selected" id="hour1"><p>₹{{hotel.hour_1_price}}</p><span>1 hour</span></div>
+                    <div class="time-span" id="hour2"><p>₹{{hotel.hour_2_price}}</p><span>2 hour</span></div>
+                    <div class="time-span" id="hour3"><p>₹{{hotel.hour_3_price}}</p><span>3 hour</span></div>
+                    <div class="time-span" id="hour4"><p>₹{{hotel.hour_4_price}}</p><span>4 hour</span></div>
                 </div>
             </div>
 
@@ -33,60 +50,52 @@
                 <div class="guest-count-div">
                     <div>
                 <label for="">Adults</label>
-                <input type="text" inputmode="numeric" value="0"></div>
+                <input name="adult_count" type="text" inputmode="numeric" value="0"></div>
                 <div>
                 <label for="">Children</label>
-                <input type="text" inputmode="numeric" value="0"></div></div>
+                <input name="child_count" type="text" inputmode="numeric" value="0"></div></div>
             </div>
-            <!-- <input type="submit" value="Book Now"> -->
+            <input class="submit-btn" type="submit" value="Continue Booking">
         </form>
         <div class="discription">
             <i><b>Description</b></i>
             <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet sunt, a porro praesentium ipsa optio nemo labore fugit enim animi, similique aut iure sapiente explicabo quod soluta eum aliquid. Aut eos quo eligendi laborum perspiciatis necessitatibus esse animi, quaerat expedita repellat perferendis ea enim maxime dolores, nulla ipsam fugit iusto.</p>
+            {{hotel.description}}</p>
         </div>
-        <div class="amenities">
+        <div class="amenities-div">
+            <i><b>Amenities</b></i>
+            <div class="amenities">
+            {% if hotel.safety %}
             <div class="safety">
                 <svg style="filter:invert" xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30"><path d="m436 709 228-228-42-41-183 183-101-101-44 44 142 143Zm44 266q-140-35-230-162.5T160 533V295l320-120 320 120v238q0 152-90 279.5T480 975Zm0-62q115-38 187.5-143.5T740 533V337l-260-98-260 98v196q0 131 72.5 236.5T480 913Zm0-337Z"/></svg>
 
                 <span>Safety</span>
-            </div>
+            </div>{% endif %}
+            {% if hotel.privacy %}
             <div class="privacy">
                 <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30"><path d="m629 637-44-44q26-71-27-118t-115-24l-44-44q17-11 38-16t43-5q71 0 120.5 49.5T650 556q0 22-5.5 43.5T629 637Zm129 129-40-40q49-36 85.5-80.5T857 556q-50-111-150-175.5T490 316q-42 0-86 8t-69 19l-46-47q35-16 89.5-28T485 256q143 0 261.5 81.5T920 556q-26 64-67 117t-95 93Zm58 226L648 827q-35 14-79 21.5t-89 7.5q-146 0-265-81.5T40 556q20-52 55.5-101.5T182 360L56 234l42-43 757 757-39 44ZM223 402q-37 27-71.5 71T102 556q51 111 153.5 175.5T488 796q33 0 65-4t48-12l-64-64q-11 5-27 7.5t-30 2.5q-70 0-120-49t-50-121q0-15 2.5-30t7.5-27l-97-97Zm305 142Zm-116 58Z"/></svg>
                 <span>Privacy</span>
-            </div>
+            </div>{% endif %}
+            {% if hotel.security %}
             <div class="security">
                 <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30"><path d="M480 976q-140-35-230-162.5T160 534V296l320-120 320 120v238q0 152-90 279.5T480 976Zm0-62q106-35 175.5-128.5T737 576H480V241l-260 97v196q0 12 .5 20.5T223 576h257v338Z"/></svg>
                 <span>Security</span>
-            </div>
-        </div>
+            </div>{% endif %}
+        </div></div>
         <div class="nearby">
             <span>What's Nearby</span>
             <div class="nearby-div">
+                {% for item in hotel_nearBy %}
                 <div>
                     <span class="ref-name">
-                        Hari Ki Paudi
+                        {{item.reference_name}}
                     </span>
                     <span class="ref-dis">
-                        200m
+                        {{item.reference_distance}}m
                     </span>
                 </div>
-                <div>
-                    <span class="ref-name">
-                        Railway Station
-                    </span>
-                    <span class="ref-dis">
-                        500m
-                    </span>
-                </div>
-                <div>
-                    <span class="ref-name">
-                        Bus Stand
-                    </span>
-                    <span class="ref-dis">
-                        550m
-                    </span>
-                </div>
+                {% endfor %}
+                
             </div>
 
         </div>
@@ -97,4 +106,31 @@
     </div>
 
 </div>
+<script type="module" src="{% static 'js/hotel_slider.js' %}"></script>
+
+<script>
+    let timeSpan =  document.getElementsByClassName('time-span');
+    for(let i=0; i<timeSpan.length; i++){
+        timeSpan[i].addEventListener("click", ()=>{
+            if(document.getElementsByClassName('time-selected'.length>0)){
+                document.querySelector('.time-selected').classList.remove('time-selected');
+                timeSpan[i].classList.add('time-selected');
+                if(timeSpan[i].id == 'hour1'){
+                    document.getElementsByName("hour_count")[0].value = '1';
+                    document.getElementsByName("price")[0].value = "{{hotel.hour_1_price}}";
+                }else if(timeSpan[i].id == 'hour2'){
+                    document.getElementsByName("hour_count")[0].value = '2';
+                    document.getElementsByName("price")[0].value = "{{hotel.hour_2_price}}";
+                }else if(timeSpan[i].id == 'hour3'){
+                    document.getElementsByName("hour_count")[0].value = '3';
+                    document.getElementsByName("price")[0].value = "{{hotel.hour_3_price}}";
+                }else if(timeSpan[i].id == 'hour4'){
+                    document.getElementsByName("hour_count")[0].value = '4';
+                    document.getElementsByName("price")[0].value = "{{hotel.hour_4_price}}";
+                }
+            }
+        })
+    }
+   
+</script>
 {% endblock content %}

@@ -5,18 +5,27 @@
 
 <div class="booking">
     <span>Your Booking details</span>
-    <form action="">
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="hotel_id" value="{{hotel_id}}">
+        <input type="hidden" name="type" value="user_registration">
+        <input type="hidden" name="date" value="{{date}}">
+        <input type="hidden" name="time" value="{{time}}">
+        <input type="hidden" name="hour_count" value="{{hour_count}}">
+        <input type="hidden" name="adult_count" value="{{adult_count}}">
+        <input type="hidden" name="child_count" value="{{child_count}}">
+        <input type="hidden" name="price" value="{{price}}">
         <div>
         <label for="">Full Name</label>
-        <input type="text"></div>
+        <input type="text" name="name"></div>
         <div><label for="">Mobile Number</label>
-        <input type="text"></div>
+        <input type="text" name="phone"></div>
         <div><label for="">Email Address</label>
-        <input type="text"></div>
+        <input type="text" name="email"></div>
         <div><label for="">ID proof Front</label>
-        <input type="file"></div>
+        <input type="file" name="front_id"></div>
         <div><label for="">ID proof Back</label>
-        <input type="file"></div>
+        <input type="file" name="back_id"></div>
         <div>
             <input type="submit" value="Book">
         </div>

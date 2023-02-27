@@ -11,18 +11,18 @@
     </h3>
 </div>
 
-<form action="">
+<form method="GET" action="hotels">
     <div class="form-div">
         <label for="">Destination</label>
-        <input type="text" placeholder="Search For city, hotel or location">
+        <input title="Enter Your Designation" type="text" placeholder="Search For city, hotel or location" required name="designation">
         <hr>
         <div>
             <div><label for="">Date</label>
-                <input type="date">
+                <input title="Select Date" type="date" required name="date">
             </div>
             <hr>
             <div><label for="">Time</label>
-                <input type="time">
+                <input title="Select Time" type="time" required name="time">
             </div>
         </div>
     </div>
@@ -32,54 +32,14 @@
 <div class="explore_designation">
     <h3>Kya Yanha Jane Ka Plan hai?</h3>
     <ul>
+        {% for item in designation %}
         <li>
-            <img src="" alt="">
-            <span>Haridwar</span>
+            <img src="{{item.image.url}}" alt="">
+            <span>{{item.name}}</span>
         </li>
-        <li>
-            <img src="" alt="">
-            <span>Haldwani</span>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>Dehradun</span>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>Nanital</span>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>Rudrapur</span>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>Rudrapur</span>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>Rudrapur</span>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>Rudrapur</span>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>Rudrapur</span>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>Rudrapur</span>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>Rudrapur</span>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>Rudrapur</span>
-        </li>
+        {% endfor %}
+       
+   
     </ul>
 </div>
 

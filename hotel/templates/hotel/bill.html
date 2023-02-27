@@ -7,32 +7,40 @@
     <span class="bill-head">Final Booking details</span>
     <div class="hotel-info">
         <div class="hotel-data">
-            <span class="hotel-name">NOMOCO - Hotel sindhi</span>
-            <span class="hotel-add">Near  Haridwar Kotwali , Upper Road Hari Ki Paudi </span>
+            <span class="hotel-name">{{bill.hotel.hotel_name}}</span>
+            <p class="hotel-add">{{bill.hotel.address}}</p>
         </div>
         <div class="hotel-img">
-            <img src="" alt="">
+            <img src="{{bill.hotel.poster.url}}" alt="">
         </div>
-        <div class="billing-time">
-            <span>Check in date &nbsp;&nbsp;&nbsp;12 feb 2023</span>
-            <span>Check in  time  &nbsp;&nbsp;&nbsp;1:00 PM</span>
-            <span>Check out  time  &nbsp;&nbsp;&nbsp;Check out  time </span>
+        
+    </div>
+    <div class="billing-time">
+        <div>
+        <p>Check in date </p>
+        <p>Check in  time</p>
+        <p>Check out  time</p></div>
+
+        <div>
+            <p>{{bill.date}}</p><p>{{bill.time_from}}</p><p>{{bill.time_to}}</p>
         </div>
-        <div class="payment-details">
-            <div class="context">
-                <span>Price -</span>
-                <span>Discount -</span>
-                <span>Deal Price -</span>
-                <span>GST -</span>
-                <span>Amount to Pay -</span>
-            </div>
-            <div class="data">
-                <span>₹500</span>
-                <span>₹351</span>
-                <span>₹149</span>
-                <span>%12</span>
-                <span>₹167</span>
-            </div>
+    </div>
+    <p class="payment-head">Payment Details</p>
+    <div class="payment-details">
+        
+        <div class="payement-context">
+            <span>Price -</span>
+            <span>Discount -</span>
+            <span>Deal Price -</span>
+            <span>GST -</span>
+            <span>Amount to Pay -</span>
+        </div>
+        <div class="payment-data">
+            <span>₹{{max_price}}</span>
+            <span>₹{{discount}}</span>
+            <span>₹{{price}}</span>
+            <span>%12</span>
+            <span>₹{{total_price}}</span>
         </div>
     </div>
 </div>

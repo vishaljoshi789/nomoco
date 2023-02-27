@@ -1,8 +1,48 @@
-.hotel img{
-    width: 100%;
-    height: 300px;
-    background-color: grey;
+.img-gap{
+    margin: 300px 0;
 }
+.slider{
+    width:80%;
+    height:300px;
+    position:absolute;
+    left:10%;
+    top:60px;
+    overflow:hidden;
+  }
+  .prev{
+    position:absolute;
+    top:200px;
+    left:2.5%;
+    cursor:pointer;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .next{
+    position:absolute;
+    top:200px;
+    right:2.5%;
+    cursor:pointer;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .transition {
+    transition:.5s linear;
+  }
+  .slide{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0%;
+    left:0%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  
 
 .hotel_info{
     display: flex;
@@ -28,6 +68,7 @@
     gap: 10px;
     align-items: center;
     cursor: pointer;
+    padding: 3px;
 }
 
 .time-span p{
@@ -37,6 +78,11 @@
 
 .time-span span{
     font-weight: bold;
+}
+
+.time-selected{
+    border: 2px solid black;
+    border-radius: 5px;
 }
 
 .guest-count{
@@ -68,9 +114,21 @@
     font-weight: bold;
 }
 
+.submit-btn{
+    background-color: rgb(239, 9, 159);
+    color: white;
+    padding: 5px;
+    font-size: 20px;
+    border: 1px solid rgba(135, 135, 135, 0.501);
+    border-radius: 5px;
+    width: fit-content;
+    margin: 10px auto;
+    display: block;
+}
+
 
 .discription p{
-    margin: 10px 0;
+    margin: 10px 0 30px 0;
     border: 1px solid rgba(128, 128, 128, 0.498);
     border-radius: 0 0 10px 10px;
     padding: 10px;
@@ -78,6 +136,7 @@
 }
 
 .amenities{
+    margin: 10px 0;
     border: 1px solid rgba(128, 128, 128, 0.498);
     padding: 20px 10px;
     border-radius: 0 0 10px 10px;
@@ -131,3 +190,5 @@
     border: 1px solid rgba(128, 128, 128, 0.400);
     padding: 10px;
 }
+
+    

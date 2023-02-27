@@ -4,5 +4,70 @@
 
 .bill-head{
     font-size: 30px;
-    text-decoration: underline;
+    
+}
+
+.hotel-info{
+    display: flex;
+    padding: 30px 10px;
+    gap: 50px;
+    align-items: center;
+}
+
+.hotel-data{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hotel-name{
+    font-weight: bold;
+}
+
+.hotel-add{
+    font-size: 13px;
+}
+
+.hotel-img{
+    width: 30%;
+    /* background-color: grey; */
+
+}
+
+.hotel-img img{
+    height: 100%;
+    width: 100%;
+}
+
+.billing-time{
+    font-size: 20px;
+    display: flex;
+    padding: 0px 10px;
+    gap: 50px;
+    width: fit-content;
+}
+
+.billing-time div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.payment-head{
+font-size: 30px;
+margin: 10px 0;
+}
+
+.payment-details{
+    display: flex;
+    gap: 50px;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.payment-details div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
