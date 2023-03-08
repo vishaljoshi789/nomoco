@@ -1,11 +1,39 @@
-.index-banner{
-    background-color: rgb(239,4,157);
-    height: 200px;
-    margin: 0px 25px 0px 25px;
+.index-banner{  
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
 }
 
-.tagline-1{
+.index-banner span{
+    font-size: 20px;
+}
+
+.index-banner form{
     display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.index-banner form input{
+    padding: 5px 10px;
+}
+
+.index-banner form input[type="submit"]{
+    background-color: rgb(0, 153, 239);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+
+.tagline-1{
+    display: none;
     align-items: center;
     justify-content: center;
     padding: 25px 50px;
@@ -41,14 +69,15 @@
     flex-direction: column;
 }
 
-form{
+.mob-form{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    display: none;
 }
 
-form > input[type="submit"]{
+.mob-form > input[type="submit"]{
     width: 75%;
     margin: 10px auto;
     background-color: rgb(239,4,157);
@@ -63,6 +92,7 @@ form > input[type="submit"]{
 .explore_designation{
     margin: 10px 0;
     text-align: center;
+    display: none;
 }
 
 .explore_designation>ul{
@@ -71,15 +101,17 @@ form > input[type="submit"]{
     overflow-x: scroll;
 }
 
-.explore_designation>ul>li{
+.explore_designation>ul>li>a{
     margin: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: black;
+    text-decoration: none;
 }
 
 
-.explore_designation>ul>li>img{
+.explore_designation>ul>li img{
     width: 50px;
     height: 50px;
     background-color: grey;
@@ -95,5 +127,127 @@ form > input[type="submit"]{
 }
 .explore_designation>ul::-webkit-scrollbar-thumb{
     background-color: rgb(0, 0, 0);
+}
+
+.tagline-2{
+    display: flex;
+    padding: 0px 30px;
+    justify-content: space-evenly;
+    color:rgb(238, 5, 157);
+    font-weight: bold;
+    font-size: 22px;
+    align-items: center;
+    border: 1px solid rgba(128, 128, 128, 0.516);
+
+}
+
+.tagline-2 div{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.large-banner{
+    display: flex;
+    margin:0  100px ;
+    flex-direction: column;
+}
+
+.large-banner-details{
+    padding: 20px;
+    border-radius: 0 0 50px 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.large-banner-details div{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.large-live-offers{
+    margin: 20px 100px;
+
+}
+
+.large-live-offers>span{
+    font-weight: bold;
+}
+
+.large-live-offers> div{
+    padding: 10px ;
+    color: white;
+    margin: 5px 0;
+    height: 100px;
+    display: flex;
+}
+
+.large-live-offers > div > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.large-subscribe{
+    display:flex;
+    margin: 30px 100px;
+    justify-content: space-evenly;
+}
+
+.large-subscribe-info{
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+}
+
+.large-subscribe-info span{
+    font-size: 22px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.large-subscribe-info form input{
+    padding: 5px;
+    text-align: center;
+}
+.large-subscribe-info form input[type="submit"]{
+    background-color: rgb(0, 153, 239);
+    color: white;
+    border: none;
+}
+
+
+
+
+@media screen and (max-width: 768px){
+    .mob-form{
+        display: flex;
+    }
+    .index-banner form{
+        display: none;
+    }
+    .tagline-1{
+        display: flex;
+    }.explore_designation{
+        display: block;
+    }.tagline-2{
+        display: none;
+    }.large-banner{
+        display: none;
+    }.large-live-offers{
+        display: none;
+    
+    }.large-subscribe{
+        display: none;
+    }
 }
 

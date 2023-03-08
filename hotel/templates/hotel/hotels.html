@@ -5,16 +5,19 @@
     <div class="search-details">
         <input type="text" value="{{desc}}">
         <div>
-            <span>{{date}}</span>
+            <input type="date" value="{{date}}" name="date" id="date">
+            <!-- <span>{{date}}</span> -->
             <p>Check In</p>
-            <span>{{time}}</span>
+            <input type="time" value="{{time}}" name="time" id="time">
+            <!-- <span>{{time}}</span> -->
         </div>
     </div>
     <hr>
-    <h2> <b> {{hotels|length}} </b>Short Stay destination found in Haridwar</h2>
+    {% if date == '' or date == 'None' or time == '' or time == 'None' or not date or not time %}<span style="color:red; padding:10px; font-weight:bold;">*Please Select Date and Time before Proceeding!</span>{% endif %}
+    <h2> <b> {{hotels|length}} </b>Short Stay destination found in {{desc}}</h2>
     <div class="cards">
         {% for hotel in hotels %} 
-        <a href="/hotel?id={{hotel.id}}&date={{date}}&time={{time}}" class="card">
+        <a href="{% if date != '' and date != 'None' and time != '' and time != 'None' and date and time %} /hotel?id={{hotel.id}}&date={{date}}&time={{time}} {% endif %}" class="card">
             <div class="card-img" style="background: url({{hotel.poster.url}});"></div>
             <!-- <img src="{{hotel.poster.url}}" alt=""> -->
             <div class="card-details">
@@ -31,5 +34,41 @@
         {% endfor %}
         
     </div>
+
+    <div class="large-cards">
+        {% for hotel in hotels %} 
+        <a href="{% if date != '' and date != 'None' and time != '' and time != 'None' and date and time %} /hotel?id={{hotel.id}}&date={{date}}&time={{time}} {% endif %}" class="large-card">
+            <div class="large-card-img" style="background: url({{hotel.poster.url}});"></div>
+            <!-- <img src="{{hotel.poster.url}}" alt=""> -->
+            <div class="large-card-details">
+                <h2>{{hotel.hotel_name}}</h2>
+                <span class="">{{hotel.address}}</span>
+                <span class="rating">4.0 Ratings</span>
+                <div><span style="color:rgb(239, 5, 157); font-weight: bold;margin-left: 10px;">Lowest price guranteed</span>
+                </div>
+                <div class=""><span style="font-size: 20px; font-weight:bold;">₹149/hour</span></div>
+            </div>
+        </a>
+        {% endfor %}
+        
+    </div>
 </div>
+<script>
+    cards = document.getElementsByClassName("card");
+    document.getElementById('date').addEventListener("input", ()=>{
+        location.href = `/hotels?designation={{desc}}&date=${document.getElementById('date').value}&time={{time}}`
+        // for(let i = 0; i<cards.length; i++){
+        //     console.log(cards[i].href)
+        // cards[i].href = `/hotel?id={{hotel.id}}&date=${document.getElementById('date').value}&time={{time}}`
+        
+    // }
+    })
+    document.getElementById('time').addEventListener("input", ()=>{
+        location.href = `/hotels?designation={{desc}}&date={{date}}&time=${document.getElementById('time').value}`
+    //     for(let i = 0; i<cards.length; i++){
+    //     cards[i].href = `/hotel?id={{hotel.id}}&date={{date}}&time=${document.getElementById('time').value}`
+    // }
+    })
+    
+</script>
 {% endblock content %}

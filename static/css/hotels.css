@@ -3,7 +3,7 @@
 }
 
 .cards{
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
@@ -26,7 +26,7 @@
     border: 1px solid rgba(128, 128, 128, 0.456);
 }
 
-.search-details span{
+.search-details input[type="date"], .search-details input[type="time"]{
     color: blue;
     border: 1px solid rgba(128, 128, 128, 0.456);
     padding: 10px;
@@ -77,4 +77,62 @@
 .price{
     margin: 10px 5px;
     font-size: 20px;
+}
+
+.large-cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 30px;
+}
+
+.large-card{
+    display: flex;
+    width: 100%;
+    color: black;
+    text-decoration: none;
+    gap: 20px;
+    border: 1px solid rgba(128, 128, 128, 0.581);
+}
+.large-card-img{
+    background-size:cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    height: 120px;
+    width: 50%;
+}
+
+.large-card-details{
+    display: flex;
+    flex-direction: column;
+    text-align:center;
+    padding: 10px;
+    justify-content: center;
+}
+
+.large-card-details h2{
+    font-size: 15px;
+}
+
+.large-card-details span{
+    font-size: 13px;
+}
+.rating{
+    background-color: rgb(27, 245, 48);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    width: fit-content;
+    padding: 3px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px){
+    .cards{
+        display: flex;
+    }.large-cards{
+        display: none;
+    }
 }

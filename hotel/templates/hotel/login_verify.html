@@ -1,0 +1,45 @@
+{% extends 'base.html' %} 
+
+{% block content %} 
+<style>
+    form{
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        gap: 20px;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid rgba(152, 152, 152, 0.482);
+        margin: 10px auto;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    form div{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    input[type="submit"]{
+        background-color: rgb(239, 4, 157);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+        cursor: pointer;
+    }
+    input[type="text"]{
+        padding: 10px;
+    }
+
+    
+</style>
+
+<form action="{% url 'verify_user' %}" method="post">
+    {% csrf_token %}
+    <span>We have send an OTP on your Email</span>
+    <div>
+    <input type="text" name="otp" placeholder="Enter OTP">
+    <input type="hidden" name="email" value="{{email}}">
+    <input type="submit" value="Login"></div>
+</form>
+{% endblock content %} 

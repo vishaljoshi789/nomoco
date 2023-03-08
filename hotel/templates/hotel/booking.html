@@ -17,11 +17,11 @@
         <input type="hidden" name="price" value="{{price}}">
         <div>
         <label for="">Full Name</label>
-        <input type="text" name="name"></div>
+        <input type="text" name="name" {% if request.user.is_authenticated %}value="{{request.user.name}}"{% endif %}></div>
         <div><label for="">Mobile Number</label>
-        <input type="text" name="phone"></div>
+        <input type="text"  {% if request.user.is_authenticated %}value="{{request.user.phone}}"{% endif %}name="phone"></div>
         <div><label for="">Email Address</label>
-        <input type="text" name="email"></div>
+        <input type="text" {% if request.user.is_authenticated %}value="{{request.user.email}}"{% endif %} name="email"></div>
         <div><label for="">ID proof Front</label>
         <input type="file" name="front_id"></div>
         <div><label for="">ID proof Back</label>
@@ -30,7 +30,7 @@
             <input type="submit" value="Book">
         </div>
     </form>
-    <p>Note-  If you upload the ID here, then you will not have to show it in the hotel. </p>
+    <p>Tip :- Always carry your Photo ID during check in</p>
 </div>
 
 

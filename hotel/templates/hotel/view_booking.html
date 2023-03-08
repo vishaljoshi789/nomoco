@@ -1,0 +1,35 @@
+{% extends 'base.html' %} 
+
+{% block content %} 
+
+{% if request.user.is_authenticated %}
+{% for booking in bookings %} 
+{{booking.hotel}}
+{% endfor %}
+{% else %} 
+<style>
+    .sign-in{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 10px;
+        font-weight: bold;
+        justify-content: center;
+    }
+    .sign-in a{
+        padding: 10px;
+        background-color: rgb(239, 4, 157);
+        color: white;
+        border-radius: 10px;
+        text-decoration: none;
+    }
+</style>
+
+<div class="sign-in">
+    <span>Login to your account</span>
+    <a href="{% url 'login' %}">Login</a>
+</div>
+
+{% endif %}
+
+{% endblock content %}

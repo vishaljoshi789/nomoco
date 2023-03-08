@@ -1,9 +1,20 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-<div class="index-banner">
+<div class="index-banner"
+    style="background: url({% static 'images/banner.jpg' %}); background-size:cover; color:white; padding:30px; font-weight:bold;">
+
+    <span>World's first only for short stay hotel Booking platform</span>
+    <form method="GET" action="hotels" >
+        <input type="text" placeholder="Search city, hotels" name="designation">
+        <input type="date" name="date" id="">
+        <input type="time" name="time" id="">
+        <input type="submit" value="Search">
+    </form>
 
 </div>
+
+
 
 <div class="tagline-1">
     <h3>
@@ -11,10 +22,63 @@
     </h3>
 </div>
 
-<form method="GET" action="hotels">
+<div class="large-banner">
+    <div class="tagline-2">
+        <div>
+            <span>Aap</span>
+            <img src="{% static 'images/clock.png' %}" alt="" width="50">
+            <span>bachao</span>
+        </div>
+        <div
+            style="height:85px; width:1px; transform: rotate(45deg); background-color: rgba(0, 0, 0, 0.519);margin: -10px;">
+        </div>
+        <div>
+            <span>Aapke</span>
+            <img src="{% static 'images/notes.png' %}" alt="" width="50">
+            <span>hum bacha lenge</span>
+        </div>
+    </div>
+    <div class="large-banner-details" style="background: url({% static 'images/beach.jpg' %}); background-size:cover;">
+        <div>Minimum 1 hour <br> Maximum 4 hours</div>
+        <div>Rooms starting <br> form ₹149 </div>
+    </div>
+</div>
+
+<div class="large-live-offers">
+    <span>Live offers</span>
+<div style="background:url({% static 'images/hotel.jpg' %}); background-size:cover;">
+    <div style="font-size: 12px; font-weight: bold;width: 10%; position: absolute;">Refer and earn</div>
+    <div style="width: 100%; justify-self: center;"><span style="font-size: 20px; font-weight: bold;">7 Free Stays For lucky users</span><span style="font-size: 12px; font-weight: bold;">Terms And Condition</span></div>
+</div></div>
+
+<div class="large-subscribe">
+    <div class="large-subscribe-image" style="background: url({% static 'images/room.jpg' %}); width:30%; background-size:100% 100%;"></div>
+        <div class="large-subscribe-info">
+            <span>Never miss any <svg fill="#ee059d" height="50px" width="50px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 285 285" xml:space="preserve">
+
+                <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                
+                <g id="SVGRepo_iconCarrier"> <polygon points="82.5,285 251,97.5 151.108,97.5 188,0 90,0 34,148 134.205,148.487 "/> </g>
+                
+                </svg>
+            
+            electrifying deals</span>
+            <form action="">
+                
+                <input type="text" placeholder="rahul@email.com">
+                <input type="submit" value="Notify Me">
+            </form>
+        </div>
+
+</div>
+
+<form method="GET" action="hotels" class="mob-form">
     <div class="form-div">
         <label for="">Destination</label>
-        <input title="Enter Your Designation" type="text" placeholder="Search For city, hotel or location" required name="designation">
+        <input title="Enter Your Designation" type="text" placeholder="Search For city, hotel or location" required
+            name="designation">
         <hr>
         <div>
             <div><label for="">Date</label>
@@ -34,21 +98,22 @@
     <ul>
         {% for item in designation %}
         <li>
-            <img src="{{item.image.url}}" alt="">
-            <span>{{item.name}}</span>
+            <a href="/hotels?designation={{item.name}}">
+                <img src="{{item.image.url}}" alt="">
+                <span>{{item.name}}</span></a>
         </li>
         {% endfor %}
-       
-   
+
+
     </ul>
 </div>
 
 <div class="offers">
-    
+
 </div>
 
 <div class="subscribe">
-    
+
 </div>
 
 {% endblock content %}

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-bd^v2lw826%ybsn)6v9i9s1_$#g&egfwu582hgzmj$%1aijck%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nomoco.in', '92.242.187.44']
 
 
 # Application definition
@@ -139,3 +139,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # TWILIO_ACCOUNT_SID='AC55790abfc8d9c0c56d1a07acf0e8aa99'
 # TWILIO_AUTH_TOKEN='0bdc06e5cc461312ebc9a0d4e0da727a'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'vishal404testmail@gmail.com'
+EMAIL_HOST_PASSWORD = 'ilylnpqkfdsvpbpr'

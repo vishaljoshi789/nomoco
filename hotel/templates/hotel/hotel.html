@@ -16,18 +16,22 @@
       <div class="prev"><</div>
       <div class="next">></div>
     <div class="hotel_info">
-        <div style="color:rgb(239, 9, 159); display: flex; align-items: center;gap: 10px; margin: 10px 0;"><svg fill="#ef099f" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 96 960 960" width="24"><path d="M220 976q-24.75 0-42.375-17.625T160 916V482q0-24.75 17.625-42.375T220 422h70v-96q0-78.85 55.606-134.425Q401.212 136 480.106 136T614.5 191.575Q670 247.15 670 326v96h70q24.75 0 42.375 17.625T800 482v434q0 24.75-17.625 42.375T740 976H220Zm0-60h520V482H220v434Zm260.168-140Q512 776 534.5 753.969T557 701q0-30-22.668-54.5t-54.5-24.5Q448 622 425.5 646.5t-22.5 55q0 30.5 22.668 52.5t54.5 22ZM350 422h260v-96q0-54.167-37.882-92.083-37.883-37.917-92-37.917Q426 196 388 233.917 350 271.833 350 326v96ZM220 916V482v434Z"/></svg>Your Privacy Is Our First Priority </div>
+        <div class="privacy-text" style="color:rgb(239, 9, 159);align-items: center;gap: 10px; margin: 10px 0;"><svg fill="#ef099f" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 96 960 960" width="24"><path d="M220 976q-24.75 0-42.375-17.625T160 916V482q0-24.75 17.625-42.375T220 422h70v-96q0-78.85 55.606-134.425Q401.212 136 480.106 136T614.5 191.575Q670 247.15 670 326v96h70q24.75 0 42.375 17.625T800 482v434q0 24.75-17.625 42.375T740 976H220Zm0-60h520V482H220v434Zm260.168-140Q512 776 534.5 753.969T557 701q0-30-22.668-54.5t-54.5-24.5Q448 622 425.5 646.5t-22.5 55q0 30.5 22.668 52.5t54.5 22ZM350 422h260v-96q0-54.167-37.882-92.083-37.883-37.917-92-37.917Q426 196 388 233.917 350 271.833 350 326v96ZM220 916V482v434Z"/></svg>Your Privacy Is Our First Priority </div>
         <h2 class="name">{{hotel.hotel_name}}</h2>
         <span class="address">{{hotel.address}}</span>
         <div style="margin: 10px 0;"><div style="color:rgb(239, 9, 159); display: flex; gap: 10px;"><svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 30 35">
             <path
                 d="M36.5 25.5v-3H44v3ZM39 40l-6.05-4.5 1.8-2.4 6.05 4.5Zm-4.1-25.15-1.8-2.4L39 8l1.8 2.4ZM10.5 38v-8H7q-1.25 0-2.125-.875T4 27v-6q0-1.25.875-2.125T7 18h9l10-6v24l-10-6h-2.5v8ZM15 24Zm13 6.7V17.3q1.35 1.2 2.175 2.925Q31 21.95 31 24t-.825 3.775Q29.35 29.5 28 30.7ZM7 21v6h9.8l6.2 3.7V17.3L16.8 21Z" />
-        </svg><span>Lowest price guranteed</span></div><div class="rate" style="margin-left:10px; font-size: larger; display: flex; gap: 10px;">
-            <span >₹{{hotel.offer_price}}/hour</span>
+        </svg><span>Lowest price guranteed</span></div><div class="rate" style="margin-left:10px; font-size: larger; gap: 10px;">
+            <span>₹{{hotel.offer_price}}/hour</span>
             <strike>₹{{hotel.price}}</strike>
-        </div></div>
+        </div>
+        <span class="rating">4.0 Ratings</span>
+    </div>
+
+
         
-        <form action="{% url 'booking' %}" method="POST">
+        <!-- <form action="{% url 'booking' %}" method="POST" class="form">
             {% csrf_token %}
             <input type="hidden" name="hour_count" value="1">
             <input type="hidden" name="type" value="booking_page">
@@ -47,6 +51,48 @@
 
             <div class="guest-count">
                 <b>Select Guests</b>
+                <div class="guest-count-div">
+                    <div>
+                <label for="">Adults</label>
+                <input name="adult_count" type="text" inputmode="numeric" value="0"></div>
+                <div>
+                <label for="">Children</label>
+                <input name="child_count" type="text" inputmode="numeric" value="0"></div></div>
+            </div>
+            <input class="submit-btn" type="submit" value="Continue Booking">
+        </form> -->
+        <form action="{% url 'booking' %}" method="POST" class="large-form">
+            {% csrf_token %}
+            <input type="hidden" name="hour_count" value="1">
+            <input type="hidden" name="type" value="booking_page">
+            <input type="hidden" name="price" value="{{hotel.hour_1_price}}">
+            <input type="hidden" name="hotel_id" value="{{hotel.id}}">
+            <input type="hidden" name="date" value="{{date}}">
+            <input type="hidden" name="time" value="{{time}}">
+            
+            <div class="large-time-asking">
+                <p style="font-weight: bolder;">START YOUR SHORT STAY BOOKING</p>
+
+                <div class="large-rates" style="margin-left:20px; font-size: larger; gap: 10px; align-items: center;">
+                    <b>₹{{hotel.offer_price}}/hour</b>
+                    <strike>₹{{hotel.price}}</strike> <span style="font-size: 13px ;">Exclusive all taxes</span>
+                </div>
+                <div class="date-and-time">
+                    <span>{{date}}</span>
+                    <span>{{time}}</span>
+                </div>
+                <span style="font-weight: bold; padding: 5px;" class="select-checkout-text">Select Checkout Time </span>
+                <div class="time-rate">
+                    
+                    <div class="time-span time-selected" id="hour1"><p>₹{{hotel.hour_1_price}}</p><span>1 hour</span></div>
+                    <div class="time-span" id="hour2"><p>₹{{hotel.hour_2_price}}</p><span>2 hour</span></div>
+                    <div class="time-span" id="hour3"><p>₹{{hotel.hour_3_price}}</p><span>3 hour</span></div>
+                    <div class="time-span" id="hour4"><p>₹{{hotel.hour_4_price}}</p><span>4 hour</span></div>
+                </div>
+            </div>
+
+            <div class="guest-count">
+                <b style="padding: 5px;">Select Guests</b>
                 <div class="guest-count-div">
                     <div>
                 <label for="">Adults</label>
@@ -110,9 +156,10 @@
 
 <script>
     let timeSpan =  document.getElementsByClassName('time-span');
+    console.log(timeSpan)
     for(let i=0; i<timeSpan.length; i++){
         timeSpan[i].addEventListener("click", ()=>{
-            if(document.getElementsByClassName('time-selected'.length>0)){
+            if(document.getElementsByClassName('time-selected').length>0){
                 document.querySelector('.time-selected').classList.remove('time-selected');
                 timeSpan[i].classList.add('time-selected');
                 if(timeSpan[i].id == 'hour1'){
